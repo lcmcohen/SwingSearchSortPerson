@@ -1,7 +1,6 @@
 package edu.touro.ds.ui;
 
-import edu.touro.ds.model.LanderStudent;
-import edu.touro.ds.model.SwingListModel;
+import edu.touro.ds.model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +17,7 @@ public class MainFrame extends JFrame {
     protected JButton buttonAdd = new JButton("Add New Student");
     protected JButton buttonSearch = new JButton("Search Students");
     protected JButton buttonSort = new JButton("Sort Students");
+    protected JButton buttonDemo = new JButton("Add Demo Students");
 
     protected JList<LanderStudent> listPerson = new JList<>();
     protected SwingListModel<LanderStudent> listModel;
@@ -63,9 +63,17 @@ public class MainFrame extends JFrame {
             }
         });
 
+        buttonDemo.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                addDemoPersons();
+            }
+        });
+
+
         panelButton.add(buttonAdd);
         panelButton.add(buttonSearch);
         panelButton.add(buttonSort);
+        panelButton.add(buttonDemo);
 
         add(panelButton);
 
@@ -79,6 +87,8 @@ public class MainFrame extends JFrame {
 
         add(listPerson);
     }
+
+
 
     /**
      * Event handler code for adding a new person
@@ -119,5 +129,13 @@ public class MainFrame extends JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Could not find the person " + personName);
         }
+    }
+
+
+    /**
+     * Event handler code when add Demonstration data is requested
+     */
+    private void addDemoPersons() {
+        listModel.addElements(LanderStudentUtils.generateDemoStudents());
     }
 }
