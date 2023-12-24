@@ -13,12 +13,12 @@ public class LanderStudent extends Person implements Comparable<LanderStudent> {
      * @param isMale      boolean value to determine gender of the person
      * @param yearOfBirth birth year for the person
      */
-    public LanderStudent(String lastName, String firstName, boolean isMale, short yearOfBirth) {
+    public LanderStudent(String lastName, String firstName, boolean isMale, int yearOfBirth) {
         super(firstName, lastName, isMale, yearOfBirth);
     }
 
     public LanderStudent(String fullName, int yearOfBirth) {
-        super("UNKNOWN", "UNKNOWN", true, (short) yearOfBirth);
+        super("UNKNOWN", "UNKNOWN", true, yearOfBirth);
         String[] names = fullName.split(",");
         this.setLastName(names[0]);
         this.setFirstName(names[1]);
@@ -59,7 +59,7 @@ public class LanderStudent extends Person implements Comparable<LanderStudent> {
      */
     @Override
     public int compareTo(LanderStudent o) {
-        return ((Short) this.getYearOfBirth()).compareTo(o.getYearOfBirth());
+        return ((Integer)this.getYearOfBirth()).compareTo(o.getYearOfBirth());
     }
 
 

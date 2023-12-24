@@ -14,7 +14,7 @@ public abstract class Person {
     private String firstName;
     private String lastName;
     private boolean isMale;
-    private short yearOfBirth;
+    private int yearOfBirth;
 
     /**
      * Constructor for Person Object. Calls each set method in order to follow the DRY methodology.
@@ -24,7 +24,7 @@ public abstract class Person {
      * @param isMale      boolean value to determine gender of the person
      * @param yearOfBirth birth year for the person
      */
-    public Person(String firstName, String lastName, boolean isMale, short yearOfBirth) {
+    public Person(String firstName, String lastName, boolean isMale, int yearOfBirth) {
         setFirstName(firstName);
         setLastName(lastName);
         setIsMale(isMale);
@@ -39,7 +39,7 @@ public abstract class Person {
      *
      * @param yearOfBirth the birth year of the person
      */
-    public void setYearOfBirth(short yearOfBirth) {
+    public void setYearOfBirth(int yearOfBirth) {
         yearValidator(String.valueOf(yearOfBirth));
         this.yearOfBirth = yearOfBirth;
     }
@@ -149,7 +149,7 @@ public abstract class Person {
      *
      * @return the Person's year of birth
      */
-    public short getYearOfBirth() {
+    public int getYearOfBirth() {
         return yearOfBirth;
     }
 

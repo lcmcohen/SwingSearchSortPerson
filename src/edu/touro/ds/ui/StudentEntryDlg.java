@@ -47,7 +47,7 @@ public class StudentEntryDlg {
         int result = JOptionPane.showConfirmDialog(null, this.p, msg,
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
-            ls = new LanderStudent(textFields[0].getText(), textFields[1].getText(), true, Short.parseShort(textFields[2].getText()));
+            ls = new LanderStudent(textFields[0].getText(), textFields[1].getText(), true, Integer.parseInt(textFields[2].getText()));
         } else {
             System.out.println("Cancelled");
         }
