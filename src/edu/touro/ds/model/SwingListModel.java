@@ -1,6 +1,7 @@
 package edu.touro.ds.model;
 
 import javax.swing.*;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -26,11 +27,21 @@ public class SwingListModel<E> extends AbstractListModel<E> {
     }
 
     /**
-     * Notify Swing that all of data has been changed.
+     * Add a collection of elements to our list, and notify Swing that Model has changed.
+     *
+     * @param elements Element to be added
+     */
+    public void addElements(Collection<E> elements) {
+        list.addAll(elements);
+        int index = list.size();
+        fireContentsChanged(this, 0, index);
+    }
+    /**
+     * Notify Swing that all of the data has been changed.
      */
     public void fireDataChanged() {
         int index = list.size();
-        fireContentsChanged(list.get(index - 1), index, index);
+        fireContentsChanged(this, 0, index);
     }
 
     public int getSize() {
