@@ -106,7 +106,8 @@ public class MainFrame extends JFrame {
      * Event handler code for sorting all data
      */
     private void sortPersons() {
-        Collections.sort(persons);
+        //MJC Collections.sort(persons);
+        LanderStudentUtils.bubbleSort(persons);
         listModel.fireDataChanged();
     }
 
@@ -120,7 +121,8 @@ public class MainFrame extends JFrame {
             return;
         }
 
-        Collections.sort(persons);
+        //Collections.sort(persons);
+        LanderStudentUtils.bubbleSort(persons);
 
         int foundIndex = Collections.binarySearch(persons, new LanderStudent(personName, 9999));
 
